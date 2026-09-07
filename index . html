@@ -1,255 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Hacking Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>Cyber Hacking Lab</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0a0f0d;
-            color: #e8f5e9;
-            line-height: 1.6;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            background: #050806;
-            padding: 20px 8%;
-            border-bottom: 1px solid #1f3d2a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050807;
+    color: #e8fff0;
+    line-height: 1.6;
+}
 
-        .logo {
-            color: #39ff88;
-            font-size: 24px;
-            font-weight: bold;
-        }
+header {
+    min-height: 90vh;
+    padding: 25px 8%;
+    background:
+        radial-gradient(circle at top right, rgba(0,255,100,.12), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(0,255,100,.08), transparent 35%),
+        #050807;
+    display: flex;
+    flex-direction: column;
+}
 
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            margin-left: 20px;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 40px;
+}
 
-        nav a:hover {
-            color: #39ff88;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #39ff88;
+}
 
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            padding: 60px 8%;
-            background: radial-gradient(circle at center, #12301e, #050806 65%);
-        }
+.logo span {
+    color: white;
+}
 
-        .hero-content {
-            max-width: 750px;
-        }
+nav a {
+    color: #b8c8be;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
 
-        .tag {
-            color: #39ff88;
-            font-family: monospace;
-            margin-bottom: 15px;
-        }
+nav a:hover {
+    color: #39ff88;
+}
 
-        h1 {
-            font-size: 58px;
-            margin-bottom: 20px;
-        }
+.hero {
+    max-width: 850px;
+    margin: auto 0;
+    padding: 50px 0;
+}
 
-        h1 span {
-            color: #39ff88;
-        }
+.tag {
+    color: #39ff88;
+    font-family: monospace;
+    margin-bottom: 20px;
+}
 
-        .hero p {
-            color: #b7c8bc;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1;
+    margin-bottom: 25px;
+}
 
-        .button {
-            display: inline-block;
-            background: #39ff88;
-            color: #061008;
-            padding: 13px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+h1 span {
+    color: #39ff88;
+}
 
-        section {
-            padding: 70px 8%;
-        }
+.hero p {
+    color: #aab8ae;
+    font-size: 18px;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
 
-        section h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
+.btn {
+    display: inline-block;
+    background: #39ff88;
+    color: #031008;
+    padding: 13px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
 
-        .subtitle {
-            color: #9eafa4;
-            margin-bottom: 35px;
-        }
+.btn.secondary {
+    background: transparent;
+    color: #39ff88;
+    border: 1px solid #39ff88;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+section {
+    padding: 80px 8%;
+}
 
-        .card {
-            background: #101813;
-            border: 1px solid #1f3d2a;
-            border-radius: 10px;
-            padding: 25px;
-        }
+.section-title {
+    margin-bottom: 40px;
+}
 
-        .card h3 {
-            color: #39ff88;
-            margin-bottom: 10px;
-        }
+.section-title small {
+    color: #39ff88;
+    font-family: monospace;
+}
 
-        .card p {
-            color: #b7c8bc;
-        }
+.section-title h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
 
-        .terminal {
-            background: #020403;
-            border: 1px solid #1f3d2a;
-            border-radius: 10px;
-            padding: 25px;
-            font-family: monospace;
-            color: #39ff88;
-            overflow-x: auto;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #050806;
-            color: #7f9085;
-            border-top: 1px solid #1f3d2a;
-        }
+.card {
+    background: #0b110d;
+    border: 1px solid #1a3021;
+    padding: 25px;
+    border-radius: 10px;
+    transition: .25s;
+}
 
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #39ff88;
+}
 
-            nav a {
-                margin: 0 7px;
-            }
+.icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
 
-            h1 {
-                font-size: 40px;
-            }
-        }
-    </style>
+.card h3 {
+    margin-bottom: 10px;
+    color: #39ff88;
+}
+
+.card p {
+    color: #93a39a;
+    font-size: 14px;
+}
+
+.terminal {
+    background: #020402;
+    border: 1px solid #1f4a2c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(57,255,136,.08);
+}
+
+.terminal-bar {
+    background: #101711;
+    padding: 12px 16px;
+    color: #7f9185;
+    font-family: monospace;
+}
+
+.terminal-body {
+    padding: 25px;
+    font-family: monospace;
+    color: #39ff88;
+    min-height: 220px;
+}
+
+.terminal-body .white {
+    color: #eee;
+}
+
+.progress {
+    margin-top: 18px;
+    height: 8px;
+    background: #18231c;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    width: 35%;
+    background: #39ff88;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 8%;
+    border-top: 1px solid #15231a;
+    color: #718078;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    nav {
+        align-items: flex-start;
+    }
+
+    nav div:last-child {
+        display: none;
+    }
+
+    header {
+        min-height: 85vh;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">&lt;/&gt; CYBER LAB</div>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#topics">Topics</a>
+<nav>
+    <div class="logo">[<span>CYBER</span>]</div>
+
+    <div>
         <a href="#labs">Labs</a>
-    </nav>
+        <a href="#challenges">Challenges</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#learn">Learn</a>
+    </div>
+</nav>
+
+<div class="hero">
+
+    <div class="tag">&gt; INITIALIZING CYBER HACKING LAB...</div>
+
+    <h1>
+        Learn Cybersecurity.<br>
+        <span>Think Like a Hacker.</span>
+    </h1>
+
+    <p>
+        A practical cybersecurity learning environment for ethical
+        hacking, penetration testing, network security and defensive
+        security.
+    </p>
+
+    <a class="btn" href="#labs">Enter the Lab</a>
+    <a class="btn secondary" href="#learn">Start Learning</a>
+
+</div>
+
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-content">
-        <div class="tag">> ACCESSING CYBERSECURITY LAB...</div>
-
-        <h1>Learn. Test. <span>Secure.</span></h1>
-
-        <p>
-            A cybersecurity learning environment for exploring ethical
-            hacking, penetration testing, network security and defensive
-            security techniques.
-        </p>
-
-        <a href="#topics" class="button">Explore the Lab</a>
-    </div>
-</section>
-
-<section id="topics">
-    <h2>Cybersecurity Topics</h2>
-    <p class="subtitle">
-        Build your knowledge through practical and responsible security learning.
-    </p>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>🛡 Ethical Hacking</h3>
-            <p>
-                Learn how authorized security testing helps identify and
-                fix weaknesses in systems.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🌐 Network Security</h3>
-            <p>
-                Understand networks, protocols, firewalls and common
-                security weaknesses.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🔐 Password Security</h3>
-            <p>
-                Learn about strong passwords, authentication and
-                responsible password auditing.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>💻 Linux Security</h3>
-            <p>
-                Explore Linux commands, permissions, processes and
-                defensive security techniques.
-            </p>
-        </div>
-
-    </div>
-</section>
 
 <section id="labs">
-    <h2>Security Lab</h2>
-    <p class="subtitle">
-        Practice only in systems you own or have explicit permission to test.
+
+<div class="section-title">
+    <small>// TRAINING ENVIRONMENT</small>
+    <h2>Cyber Labs</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+    <div class="icon">🌐</div>
+    <h3>Web Security</h3>
+    <p>
+        Learn the fundamentals of web application security,
+        vulnerabilities and defensive techniques.
     </p>
+</div>
 
-    <div class="terminal">
-        $ whoami<br>
-        cyber-student<br><br>
+<div class="card">
+    <div class="icon">🔑</div>
+    <h3>Authentication</h3>
+    <p>
+        Explore authentication concepts, password security
+        and common weaknesses in controlled environments.
+    </p>
+</div>
 
-        $ mission<br>
-        Learn cybersecurity responsibly.<br><br>
+<div class="card">
+    <div class="icon">📡</div>
+    <h3>Network Security</h3>
+    <p>
+        Understand networks, traffic analysis, protocols
+        and practical defensive security.
+    </p>
+</div>
 
-        $ status<br>
-        LAB ONLINE ✓
-    </div>
+<div class="card">
+    <div class="icon">🛡️</div>
+    <h3>Defensive Security</h3>
+    <p>
+        Practice identifying weaknesses and improving the
+        security of systems you are authorized to test.
+    </p>
+</div>
+
+</div>
+
 </section>
+
+
+<section id="challenges">
+
+<div class="section-title">
+    <small>// PRACTICAL TRAINING</small>
+    <h2>Challenges</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+    <h3>Level 01 — Recon</h3>
+    <p>Learn information gathering and basic security concepts.</p>
+
+    <div class="progress">
+        <span></span>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Level 02 — Web Security</h3>
+    <p>Study common web vulnerabilities in controlled labs.</p>
+
+    <div class="progress">
+        <span style="width:15%"></span>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Level 03 — Network Defense</h3>
+    <p>Analyze network concepts and practice defensive techniques.</p>
+
+    <div class="progress">
+        <span style="width:5%"></span>
+    </div>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="terminal">
+
+<div class="section-title">
+    <small>// SIMULATED ENVIRONMENT</small>
+    <h2>Lab Terminal</h2>
+</div>
+
+<div class="terminal">
+
+<div class="terminal-bar">
+    cyber-lab@training: ~
+</div>
+
+<div class="terminal-body">
+
+<div>$ whoami</div>
+<div class="white">student</div>
+<br>
+
+<div>$ status</div>
+<div>ACCESS: AUTHORIZED</div>
+<div>MODE: TRAINING</div>
+<div>LAB: ONLINE</div>
+<br>
+
+<div>$ help</div>
+<div class="white">
+Available modules: labs / challenges / learning / defense
+</div>
+
+<br>
+
+<div>$ _</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="learn">
+
+<div class="section-title">
+    <small>// KNOWLEDGE BASE</small>
+    <h2>Learn</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+    <div class="icon">📖</div>
+    <h3>Cybersecurity Fundamentals</h3>
+    <p>
+        Build a strong foundation in security principles,
+        threats and risk management.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">💻</div>
+    <h3>Ethical Hacking</h3>
+    <p>
+        Understand ethical hacking methodologies using
+        authorized training environments.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">🔎</div>
+    <h3>Security Analysis</h3>
+    <p>
+        Learn how security professionals identify,
+        investigate and document weaknesses.
+    </p>
+</div>
+
+</div>
+
+</section>
+
 
 <footer>
     © 2026 Cyber Hacking Lab | Ethical Cybersecurity Learning
 </footer>
 
+
 </body>
 </html>
+
+
